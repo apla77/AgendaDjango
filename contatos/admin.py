@@ -2,12 +2,13 @@ from django.contrib import admin
 from .models import Categoria, Contato
 
 class ContatoAdmin(admin.ModelAdmin):
+    search_fields = ('nome', 'sobrenome', 'email')
+
     list_display = ('id', 'nome', 'sobrenome', 'telefone', 'email',
                     'data_criacao', 'categoria', 'mostrar')
     list_display_links = ('id', 'nome', 'email')
     #list_filter = ('nome', 'email')
     list_per_page = 10
-    search_fields = ('nome', 'sobrenome', 'email')
     list_editable = ('telefone', 'mostrar')
 
 admin.site.register(Categoria)
